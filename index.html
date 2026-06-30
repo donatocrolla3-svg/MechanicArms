@@ -5,289 +5,345 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop & Peel Pizza</title>
     <style>
-        /* Modern CSS Reset & Variable Styles */
         :root {
-            --bg-color: #fcfbfa;
-            --text-main: #111111;
-            --text-muted: #555555;
-            --border-color: #e5e5e5;
-            --accent-color: #da291c; /* Pizza Red accent for subtle highlights */
+            --bg-dark: #121212;
+            --bg-light: #ffffff;
+            --text-dark: #111111;
+            --text-light: #ffffff;
+            --text-muted: #666666;
+            --text-muted-dark: #aaaaaa;
+            --border-dash: #111111;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Impact', 'Arial Black', -apple-system, sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
-        /* Container designed to center everything and scale nicely from mobile to desktop */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Header / Logo Section */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* Circular Brand Logo Placeholder styling matching your design */
-        .logo-placeholder {
-            width: 140px;
-            height: 140px;
-            border: 5px solid var(--text-main);
-            border-radius: 50%;
-            margin: 0 auto 15px auto;
+        /* Top Navigation Bar */
+        nav {
+            background: var(--bg-light);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .logo-placeholder span {
-            font-size: 0.8rem;
-            font-weight: 400;
-            margin-top: 2px;
+            padding: 15px 5%;
+            border-bottom: 2px solid #000;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .nav-logo {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070') center/cover no-repeat;
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-family: Arial, sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-muted-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Menu Sheet (White Background Block) */
+        .menu-container {
+            background: var(--bg-light);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .menu-title {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 5px;
         }
 
-        .tagline {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-
-        .divider {
+        .menu-divider {
             border: none;
-            border-top: 2px dashed var(--text-main);
-            margin: 30px 0;
+            border-top: 3px dashed var(--border-dash);
+            width: 100%;
+            margin: 15px auto 30px auto;
         }
 
-        /* Menu Section Layout */
-        .menu-section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
-
+        /* Grid Layout - Fixed so it's clean and doesn't cut off */
         .menu-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Default to 1 column for clean mobile viewing */
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .menu-item {
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
         }
 
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .menu-item-header {
+        .menu-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
-        .menu-item-name {
-            font-size: 1.25rem;
-            font-weight: 700;
+        .menu-name {
+            font-size: 1.6rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .menu-item-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            white-space: nowrap;
-            padding-left: 15px;
+        .menu-price {
+            font-size: 1.6rem;
         }
 
-        .menu-item-description {
-            color: var(--text-muted);
+        .menu-desc {
+            font-family: Arial, sans-serif;
             font-size: 0.95rem;
+            color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 500;
-            letter-spacing: 0.2px;
+            line-height: 1.4;
         }
 
-        /* Location & Hours Info Section */
-        .info-section {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
+        /* Pizza Photo Gallery Row */
+        .gallery {
+            background: #1c1c1c;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .info-section h3 {
+        .gallery-item {
+            background: #2a2a2a;
+            aspect-ratio: 1/1;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-transform: uppercase;
             font-size: 1.2rem;
+            text-align: center;
+            padding: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark Footer Info & Maps Section */
+        .footer-info {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .info-block h2 {
+            font-size: 2.5rem;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
-        .info-section p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 15px;
+        .info-block p {
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-muted-dark);
         }
 
-        .map-link {
-            display: inline-block;
-            background-color: var(--text-main);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: background-color 0.2s ease;
+        .map-box {
+            width: 100%;
+            height: 250px;
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
         }
 
-        .map-link:hover {
-            background-color: #333333;
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        /* Media Query for Laptop/Desktop Screens */
+        /* Desktop Adjustments (Laptops) */
         @media (min-width: 768px) {
-            body {
-                padding: 50px 20px;
+            .hero {
+                padding: 120px 20px;
             }
-
-            .container {
-                padding: 50px 60px;
+            .hero h1 {
+                font-size: 5rem;
             }
-
-            /* Switches menu to a clean 2-column layout on wider laptop screens so it doesn't look stretched */
             .menu-grid {
                 grid-template-columns: 1fr 1fr;
-                column-gap: 40px;
-                row-gap: 30px;
+                column-gap: 50px;
             }
-
-            .menu-item {
-                border-bottom: none;
-                background: #fafafa;
-                padding: 20px;
-                border-radius: 8px;
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .footer-info {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">POP & PEEL<br>PIZZA</div>
+        <div class="nav-links">
+            <a href="#menu">Menu</a>
+            <a href="#find-us">Find Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Header Banner -->
+    <div class="hero">
+        <h1>Authentic Neapolitan<br>Pizza in Loanhead</h1>
+        <p>Hand-stretched, wood-fired dough. Order for Collection. No bookings needed.</p>
+    </div>
+
+    <!-- White Menu Sheet Block -->
+    <div class="menu-container" id="menu">
+        <h2 class="menu-title">Menu</h2>
+        <hr class="menu-divider">
         
-        <header>
-            <div class="logo-placeholder">
-                POP & PEEL
-                <span>PIZZA</span>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">Margherita Pizza</span>
+                    <span class="menu-price">£10</span>
+                </div>
+                <p class="menu-desc">Tomato sauce, basil, mozzarella cheese, olive oil.</p>
             </div>
-            <h1>Pop & Peel</h1>
-            <p class="tagline">Freshly Fired Neapolitan Pizza</p>
-        </header>
 
-        <hr class="divider">
-
-        <section class="menu-section">
-            <h2 class="section-title">Menu</h2>
-            
-            <div class="menu-grid">
-                
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="menu-item-name">Margherita Pizza</span>
-                        <span class="menu-item-price">£10</span>
-                    </div>
-                    <p class="menu-item-description">Tomato sauce, basil, mozzarella cheese, olive oil.</p>
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">Pepperoni Pizza</span>
+                    <span class="menu-price">£11</span>
                 </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="menu-item-name">Pepperoni Pizza</span>
-                        <span class="menu-item-price">£11</span>
-                    </div>
-                    <p class="menu-item-description">Tomato sauce, mozzarella cheese, pepperoni.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="menu-item-name">Veggie Pizza</span>
-                        <span class="menu-item-price">£11</span>
-                    </div>
-                    <p class="menu-item-description">Tomato sauce, mozzarella cheese, peppers, onions, mushrooms.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="menu-item-name">Spicy Pepperoni Pizza</span>
-                        <span class="menu-item-price">£12</span>
-                    </div>
-                    <p class="menu-item-description">Tomato sauce, mozzarella cheese, calabrian paste, pepperoni, red onion, jalapenos & hot honey.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="menu-item-name">Cheesy Garlic Pizza</span>
-                        <span class="menu-item-price">£9</span>
-                    </div>
-                    <p class="menu-item-description">Mozzarella cheese, garlic infused olive oil.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="menu-item-name">Nutella Dessert Pizza</span>
-                        <span class="menu-item-price">£7</span>
-                    </div>
-                    <p class="menu-item-description">Nutella and biscoff crumb.</p>
-                </div>
-
+                <p class="menu-desc">Tomato sauce, mozzarella cheese, pepperoni.</p>
             </div>
-        </section>
 
-        <hr class="divider">
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">Veggie Pizza</span>
+                    <span class="menu-price">£11</span>
+                </div>
+                <p class="menu-desc">Tomato sauce, mozzarella cheese, peppers, onions, mushrooms.</p>
+            </div>
 
-        <section class="info-section">
-            <h3>Find Us</h3>
-            <p>24 Park Cres, Loanhead EH20 9BG</p>
-            <a class="map-link" href="https://maps.google.com/?q=24+Park+Cres,+Loanhead+EH20+9BG" target="_blank">Open in Google Maps</a>
-        </section>
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">Spicy Pepperoni Pizza</span>
+                    <span class="menu-price">£12</span>
+                </div>
+                <p class="menu-desc">Tomato sauce, mozzarella cheese, calabrian paste, pepperoni, red onion, jalapenos & hot honey.</p>
+            </div>
 
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">Cheesy Garlic Pizza</span>
+                    <span class="menu-price">£9</span>
+                </div>
+                <p class="menu-desc">Mozzarella cheese, garlic infused olive oil.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">Nutella Dessert Pizza</span>
+                    <span class="menu-price">£7</span>
+                </div>
+                <p class="menu-desc">Nutella and biscoff crumb.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div class="gallery">
+        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=500');"></div>
+        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=500');"></div>
+        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=500');"></div>
+        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500');"><strong>Crafted with Passion</strong></div>
+    </div>
+
+    <!-- Dark Footer Sections (Find Us & Contact) -->
+    <div class="footer-info" id="find-us">
+        <div class="info-block">
+            <h2>Find Us</h2>
+            <p><strong>Address:</strong> 24 Park Cres, Loanhead EH20 9BG</p>
+            <p>We are collection only. Walk-ins welcome!</p>
+            <div class="map-box">
+                <!-- Live Google Map Embed centered on the address -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2238.5637207436214!2d-3.1518177!3d55.8828943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887b9cc025f569f%3A0xe54d6df022a36b3b!2s24%20Park%20Cres%2C%20Loanhead%20EH20%209BG!5e0!3m2!1sen!2suk!4v1710000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="info-block">
+            <h2>Contact & Hours</h2>
+            <p><strong>Phone:</strong> +0123 456 7790</p>
+            <p><strong>Email:</strong> info@popandfeelpizza.co.uk</p>
+            <br>
+            <p><strong>Open Hours:</strong></p>
+            <p>Tuesday - Sunday: 4:00pm - 10:00pm</p>
+            <p>Monday: Closed</p>
+        </div>
     </div>
 
 </body>
