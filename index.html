@@ -3,53 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop & Peel Pizza</title>
+    <title>Mechanic Arms | Gilmerton Pub</title>
     <style>
         :root {
-            --bg-dark: #121212;
-            --bg-light: #ffffff;
-            --text-dark: #111111;
+            --bg-dark: #1a1a1a;
+            --bg-card: #262626;
+            --accent-gold: #d4af37;
             --text-light: #ffffff;
-            --text-muted: #666666;
-            --text-muted-dark: #aaaaaa;
-            --border-dash: #111111;
+            --text-muted: #cccccc;
+            --border-color: #333333;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Impact', 'Arial Black', -apple-system, sans-serif;
+            font-family: 'Arial Black', -apple-system, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-dark);
+            color: var(--text-light);
             overflow-x: hidden;
         }
 
-        /* Top Navigation Bar */
+        /* Navigation Bar */
         nav {
-            background: var(--bg-light);
+            background: #111111;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            border-bottom: 2px solid #000;
+            border-bottom: 2px solid var(--accent-gold);
         }
 
         .nav-logo {
-            width: 50px;
-            height: 50px;
-            border: 2px solid #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            text-align: center;
-            line-height: 1;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .nav-links {
@@ -59,7 +52,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-light);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -68,175 +61,148 @@
         /* Hero Banner Section */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070') center/cover no-repeat;
-            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2074') center/cover no-repeat;
+            padding: 100px 20px;
             text-align: center;
-            color: var(--text-light);
         }
 
         .hero h1 {
             font-size: 3.5rem;
             text-transform: uppercase;
-            line-height: 1;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 15px;
         }
 
         .hero p {
             font-family: Arial, sans-serif;
             font-size: 1.2rem;
-            color: var(--text-muted-dark);
+            color: var(--accent-gold);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Main Menu Sheet (White Background Block) */
-        .menu-container {
-            background: var(--bg-light);
-            max-width: 900px;
+        /* Pub Features / Drinks Section */
+        .content-container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 50px 20px;
         }
 
-        .menu-title {
-            font-size: 3.5rem;
+        .section-title {
+            font-size: 2.5rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
         }
 
-        .menu-divider {
-            border: none;
-            border-top: 3px dashed var(--border-dash);
-            width: 100%;
-            margin: 15px auto 30px auto;
+        .section-subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
-        /* Grid Layout - Fixed so it's clean and doesn't cut off */
-        .menu-grid {
+        /* Feature Grid */
+        .features-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
             text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
-        .menu-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-
-        .menu-name {
-            font-size: 1.6rem;
+        .feature-card h3 {
+            font-size: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
         }
 
-        .menu-price {
-            font-size: 1.6rem;
-        }
-
-        .menu-desc {
+        .feature-card p {
             font-family: Arial, sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* Pizza Photo Gallery Row */
-        .gallery {
-            background: #1c1c1c;
+        /* Photo Grid Row */
+        .gallery-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            padding: 30px 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            margin-bottom: 50px;
         }
 
-        .gallery-item {
-            background: #2a2a2a;
-            aspect-ratio: 1/1;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 10px;
+        .gallery-photo {
+            background: #333;
+            aspect-ratio: 4/3;
+            border-radius: 6px;
             background-size: cover;
             background-position: center;
         }
 
-        /* Dark Footer Info & Maps Section */
-        .footer-info {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* Info & Location Section */
+        .info-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
         }
 
         .info-block h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             text-transform: uppercase;
             margin-bottom: 15px;
-            letter-spacing: 1px;
+            color: var(--accent-gold);
         }
 
         .info-block p {
             font-family: Arial, sans-serif;
             font-size: 1.1rem;
             margin-bottom: 10px;
-            color: var(--text-muted-dark);
+            color: var(--text-muted);
         }
 
-        .map-box {
+        .map-wrapper {
             width: 100%;
             height: 250px;
-            background: #222;
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
         }
 
-        .map-box iframe {
+        .map-wrapper iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* Desktop Adjustments (Laptops) */
+        /* Laptop Adjustments */
         @media (min-width: 768px) {
-            .hero {
-                padding: 120px 20px;
-            }
             .hero h1 {
-                font-size: 5rem;
+                font-size: 4.5rem;
             }
-            .menu-grid {
-                grid-template-columns: 1fr 1fr;
-                column-gap: 50px;
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
-            .gallery {
-                grid-template-columns: repeat(4, 1fr);
+            .gallery-row {
+                grid-template-columns: repeat(3, 1fr);
             }
-            .footer-info {
+            .info-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -244,105 +210,69 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Header Navigation -->
     <nav>
-        <div class="nav-logo">POP & PEEL<br>PIZZA</div>
+        <div class="nav-logo">Mechanic Arms</div>
         <div class="nav-links">
-            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
             <a href="#find-us">Find Us</a>
         </div>
     </nav>
 
-    <!-- Hero Header Banner -->
+    <!-- Hero Header -->
     <div class="hero">
-        <h1>Authentic Neapolitan<br>Pizza in Loanhead</h1>
-        <p>Hand-stretched, wood-fired dough. Order for Collection. No bookings needed.</p>
+        <h1>The Mechanic Arms</h1>
+        <p>Your Traditional Local Pub in Gilmerton, Edinburgh</p>
     </div>
 
-    <!-- White Menu Sheet Block -->
-    <div class="menu-container" id="menu">
-        <h2 class="menu-title">Menu</h2>
-        <hr class="menu-divider">
-        
-        <div class="menu-grid">
-            <div class="menu-item">
-                <div class="menu-header">
-                    <span class="menu-name">Margherita Pizza</span>
-                    <span class="menu-price">£10</span>
-                </div>
-                <p class="menu-desc">Tomato sauce, basil, mozzarella cheese, olive oil.</p>
+    <!-- Main Content Area -->
+    <div class="content-container" id="about">
+        <h2 class="section-title">Welcome to the Local</h2>
+        <p class="section-subtitle">Great Drinks, Live Sports, and Unmatched Atmosphere</p>
+
+        <!-- Pub Highlights -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Cold Pints</h3>
+                <p>A fantastic selection of draught beers, traditional ales, premium spirits, and local favorites served fresh every day.</p>
             </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <span class="menu-name">Pepperoni Pizza</span>
-                    <span class="menu-price">£11</span>
-                </div>
-                <p class="menu-desc">Tomato sauce, mozzarella cheese, pepperoni.</p>
+            <div class="feature-card">
+                <h3>Live Sports</h3>
+                <p>Catch all the biggest games, weekend football matchups, and major tournaments live on our big screens with the locals.</p>
             </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <span class="menu-name">Veggie Pizza</span>
-                    <span class="menu-price">£11</span>
-                </div>
-                <p class="menu-desc">Tomato sauce, mozzarella cheese, peppers, onions, mushrooms.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <span class="menu-name">Spicy Pepperoni Pizza</span>
-                    <span class="menu-price">£12</span>
-                </div>
-                <p class="menu-desc">Tomato sauce, mozzarella cheese, calabrian paste, pepperoni, red onion, jalapenos & hot honey.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <span class="menu-name">Cheesy Garlic Pizza</span>
-                    <span class="menu-price">£9</span>
-                </div>
-                <p class="menu-desc">Mozzarella cheese, garlic infused olive oil.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <span class="menu-name">Nutella Dessert Pizza</span>
-                    <span class="menu-price">£7</span>
-                </div>
-                <p class="menu-desc">Nutella and biscoff crumb.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Image Gallery Section -->
-    <div class="gallery">
-        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=500');"></div>
-        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=500');"></div>
-        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=500');"></div>
-        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500');"><strong>Crafted with Passion</strong></div>
-    </div>
-
-    <!-- Dark Footer Sections (Find Us & Contact) -->
-    <div class="footer-info" id="find-us">
-        <div class="info-block">
-            <h2>Find Us</h2>
-            <p><strong>Address:</strong> 24 Park Cres, Loanhead EH20 9BG</p>
-            <p>We are collection only. Walk-ins welcome!</p>
-            <div class="map-box">
-                <!-- Live Google Map Embed centered on the address -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2238.5637207436214!2d-3.1518177!3d55.8828943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887b9cc025f569f%3A0xe54d6df022a36b3b!2s24%20Park%20Cres%2C%20Loanhead%20EH20%209BG!5e0!3m2!1sen!2suk!4v1710000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
+            <div class="feature-card">
+                <h3>Community Spirit</h3>
+                <p>A warm, welcoming neighborhood atmosphere where everyone knows your name. Perfect for a weekend night or a quiet weekday pint.</p>
             </div>
         </div>
 
-        <div class="info-block">
-            <h2>Contact & Hours</h2>
-            <p><strong>Phone:</strong> +0123 456 7790</p>
-            <p><strong>Email:</strong> info@popandfeelpizza.co.uk</p>
-            <br>
-            <p><strong>Open Hours:</strong></p>
-            <p>Tuesday - Sunday: 4:00pm - 10:00pm</p>
-            <p>Monday: Closed</p>
+        <!-- Atmospheric Visual Placeholders -->
+        <div class="gallery-row">
+            <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?q=80&w=500');"></div>
+            <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=500');"></div>
+            <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?q=80&w=500');"></div>
+        </div>
+
+        <!-- Footer Info Block -->
+        <div class="info-grid" id="find-us">
+            <div class="info-block">
+                <h2>Visit Us</h2>
+                <p><strong>Address:</strong> 36 Drum St, Gilmerton, Edinburgh EH17 8QH</p>
+                <p>Located right in the heart of Gilmerton. Stop by for a drink!</p>
+                <div class="map-wrapper">
+                    <!-- Live Google Map centered exactly on 36 Drum St -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2236.9038237937494!2d-3.136814!3d55.901543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887b8f9e67a07f3%3A0x7d013f9bd4775d5a!2s36%20Drum%20St%2C%20Gilmerton%2C%20Edinburgh%20EH17%208QH!5e0!3m2!1sen!2suk!4v1710000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <h2>Opening Hours</h2>
+                <p><strong>Monday - Thursday:</strong> 11:00am - 11:00pm</p>
+                <p><strong>Friday - Saturday:</strong> 11:00am - 12:00am</p>
+                <p><strong>Sunday:</strong> 12:00pm - 11:00pm</p>
+                <br>
+                <p><em>Walk-ins are always welcome. No booking required.</em></p>
+            </div>
         </div>
     </div>
 
